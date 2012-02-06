@@ -1,0 +1,9 @@
+<%= form_for(@story) do |f| %>
+  <div id=story-new-input>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+  </div>
+  <div id=story-new-submit>
+    <%= f.submit %>
+  </div>
+<% end %>
