@@ -1,3 +1,5 @@
+include ApplicationHelper
+
 class StoriesController < ApplicationController
   def new
     @story = Story.new
@@ -17,5 +19,15 @@ class StoriesController < ApplicationController
 
   def show
     @story = Story.find(params[:id])
+  end
+
+  def index
+    puts request
+    for header in request.env
+      puts "\n\n"
+      puts header
+    end
+    render :inline => username
+    #render :inline => request.env['HTTP_DN']
   end
 end
