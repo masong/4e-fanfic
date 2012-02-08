@@ -7,6 +7,7 @@ class StoriesController < ApplicationController
 
   def create
     @story = Story.new(params[:story])
+    @story.is_active = false
 
     respond_to do |format|
       if @story.save
@@ -22,12 +23,32 @@ class StoriesController < ApplicationController
   end
 
   def index
-    puts request
-    for header in request.env
-      puts "\n\n"
-      puts header
+    render :inline => Story.all.collect{|s| s.body}.join(', ') + ' ' + username
+  end
+
+  def current
+    @story = Story.all.find_all {|s| s.is_active}[0]
+  end
+
+  def take_control
+    @story = Story.find(params[:id])
+    if @story.current_editor == nil and @story.last_editor != username
+      @story.set_control(username)
+      redirect_to :controller => :stories, :action => :current
+    else
+      render :inline => "can't forcibly take control from someone else"
     end
-    render :inline => username
-    #render :inline => request.env['HTTP_DN']
+  end
+
+  def save
+    @story = Story.find(params[:id])
+    if @story.current_editor == username
+      @story.body += '<br />'*2 + params[:story][:body]
+      @story.current_editor = nil
+      @story.save
+      redirect_to :controller => :stories, :action => :current
+    else
+      render :inline => "can't save if you aren't the current editor"
+    end
   end
 end

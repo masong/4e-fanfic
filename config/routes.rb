@@ -1,6 +1,10 @@
 Fanfic::Application.routes.draw do
   get "home/index"
 
+  match '/stories/current' => 'stories#current'
+  match '/stories/take_control' => 'stories#take_control'
+  match '/stories/save' => 'stories#save'
+
   resources :stories do
   end
 

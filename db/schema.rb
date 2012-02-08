@@ -11,12 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120206201519) do
+ActiveRecord::Schema.define(:version => 20120207233146) do
 
   create_table "stories", :force => true do |t|
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "current_editor"
+    t.text     "last_editor"
+    t.boolean  "is_active"
   end
 
 end

@@ -1,0 +1,8 @@
+<%= @story.body.html_safe %>
+<% if @story.current_editor == nil %>
+  <%= render :partial => 'stories/take_control' %>
+<% elsif @story.current_editor == username %>
+  <%= render 'stories/edit_box' %>
+<% else %>
+  Sorry, the story is currently being edited by someone else.
+<% end %>
