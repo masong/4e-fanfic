@@ -23,7 +23,6 @@ class StoriesController < ApplicationController
   end
 
   def index
-    render :inline => Story.all.collect{|s| s.body}.join(', ') + ' ' + username
   end
 
   def current

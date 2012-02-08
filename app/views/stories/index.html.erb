@@ -1,0 +1,8 @@
+<% for story in Story.all %>
+  
+  <%= story.updated_at.month %>/<%= story.updated_at.day %>/<%= story.updated_at.year %>
+  <br />
+  <%= story.body %>
+  <br />
+  <br />
+<% end %>
