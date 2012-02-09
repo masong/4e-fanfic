@@ -1,8 +1,15 @@
-<%= @story.body.html_safe %>
-<% if @story.current_editor == nil %>
-  <%= render :partial => 'stories/take_control' %>
-<% elsif @story.current_editor == username %>
-  <%= render 'stories/edit_box' %>
+<% if @story %>
+  <%= @story.body.html_safe %>
+  <br />
+  <% if @story.current_editor == nil and @story.last_editor != username %>
+    <%= render :partial => 'stories/take_control' %>
+  <% elsif @story.current_editor == username %>
+    <%= render 'stories/edit_box' %>
+  <% elsif @story.last_editor == username %>
+    Sorry, someone else must edit the story before you can contribute again.
+  <% else %>
+    Sorry, the story is currently being edited by someone else.
+  <% end %>
 <% else %>
-  Sorry, the story is currently being edited by someone else.
+  No current fanfic.
 <% end %>

@@ -1,0 +1,9 @@
+<% for story in Story.all %>
+  <%= story.title %>, <%= story.pretty_date %> 
+  <% if story.is_active %>
+    <%= link_to 'Deactivate', :id => story.id, :controller => 'stories', :action => 'deactivate' %>
+  <% else %>
+    <%= link_to 'Activate', :id => story.id, :action => 'activate', :controller => 'stories' %> 
+  <% end %>
+  <br />
+<% end %>

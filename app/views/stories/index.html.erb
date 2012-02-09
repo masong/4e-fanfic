@@ -1,8 +1,7 @@
 <% for story in Story.all %>
-  
-  <%= story.updated_at.month %>/<%= story.updated_at.day %>/<%= story.updated_at.year %>
+  <%= story.title %>, <%= story.pretty_date %>
   <br />
-  <%= story.body %>
+  <%= story.body.html_safe %>
   <br />
   <br />
 <% end %>

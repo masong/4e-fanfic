@@ -1,6 +1,8 @@
 module UserHelper
   def username
-    if @username == nil and request.env['HTTP_VERIFIED'] == 'SUCCESS'
+    if @username != nil
+      return @username
+    elsif request.env['HTTP_VERIFIED'] == 'SUCCESS'
       @username = request.env['HTTP_DN'].split('/')[-1][13..-9]
       return @username
     else

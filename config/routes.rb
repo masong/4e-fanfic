@@ -4,6 +4,10 @@ Fanfic::Application.routes.draw do
   match '/stories/current' => 'stories#current'
   match '/stories/take_control' => 'stories#take_control'
   match '/stories/save' => 'stories#save'
+  match '/stories/activate' => 'stories#activate'
+  match '/stories/deactivate' => 'stories#deactivate'
+
+  match '/admin/' => 'admin#index'
 
   resources :stories do
   end

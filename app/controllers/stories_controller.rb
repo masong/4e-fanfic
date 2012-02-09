@@ -1,4 +1,4 @@
-include ApplicationHelper
+include UserHelper 
 
 class StoriesController < ApplicationController
   def new
@@ -49,5 +49,17 @@ class StoriesController < ApplicationController
     else
       render :inline => "can't save if you aren't the current editor"
     end
+  end
+
+  def activate
+    @story = Story.find(params[:id])
+    @story.setActive
+    redirect_to :controller => :admin, :action => :index
+  end
+
+  def deactivate
+    @story = Story.find(params[:id])
+    @story.deactivate
+    redirect_to :controller => :admin, :action => :index
   end
 end
