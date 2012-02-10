@@ -1,0 +1,6 @@
+<% if story != nil %>
+  <div id=title class=highlight-text>
+    <%= story.title %>
+  </div>
+  <%= story.body.html_safe %>
+<% end %>

@@ -1,5 +1,5 @@
 <% if @story %>
-  <%= @story.body.html_safe %>
+  <%= render 'stories/story', :story => @story %>
   <br />
   <% if @story.current_editor == nil and @story.last_editor != username %>
     <%= render :partial => 'stories/take_control' %>

@@ -1,7 +1,5 @@
 <% for story in Story.all %>
-  <%= story.title %>, <%= story.pretty_date %>
-  <br />
-  <%= story.body.html_safe %>
+  <%= render 'stories/story', :story => story %>
   <br />
   <br />
 <% end %>

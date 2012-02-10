@@ -8,6 +8,8 @@ Fanfic::Application.routes.draw do
   match '/stories/deactivate' => 'stories#deactivate'
 
   match '/admin/' => 'admin#index'
+  
+  match '/about/' => 'about#index'
 
   resources :stories do
   end
