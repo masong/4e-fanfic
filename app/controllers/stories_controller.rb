@@ -7,6 +7,7 @@ class StoriesController < ApplicationController
   end
 
   def create
+    puts params
     @story = Story.new(params[:story])
     @story.is_active = false
     @story.registered_users = ','

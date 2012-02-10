@@ -1,7 +1,6 @@
 <%= form_for @story, :url => {:action => 'save', :id =>@story.id} do |f|%>
   <div>
-    <%= f.label :body %>
-    <%= f.text_field :body, :value => ''%>
+    <%= f.text_area :body, :value => ''%>
   </div>
   <div>
     <%= f.submit %>

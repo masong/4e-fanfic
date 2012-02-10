@@ -11,6 +11,7 @@ $blue: #3b79bf;
 body {
   background:url('/assets/bg.png');
   margin-top:16px;
+  margin-bottom:32px;
 }
 
 #center-col {
@@ -64,13 +65,27 @@ body a:hover {
 }
 
 #curr-story {
+  border-color:#aaaaaa;
+  border-right-style:solid;
+  border-width:1px;
   float:left;
-  width:60%;
+  margin-left:1%;
+  margin-right:2%;
+  padding-right:2%;
+  width:65%;
+}
+
+.story-body {
+  border-color:#aaaaaa;
+  border-bottom-style:solid;
+  border-width:1px;
+  padding-bottom:6px;
 }
 
 #reg-users {
   float:left;
-  width:40%;
+  padding-left:2%;
+  width:28%;
 }
 
 #dereg-link {

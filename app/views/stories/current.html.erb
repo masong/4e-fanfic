@@ -1,6 +1,7 @@
 <% if @story %>
   <div id=curr-story>
     <%= render 'stories/story', :story => @story %>
+    <br />
     <div id=story-controls>
       <% if @story.current_editor == nil and @story.last_editor != username %>
         <%= render :partial => 'stories/take_control' %>

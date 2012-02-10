@@ -3,6 +3,8 @@
     <div id=title class=highlight-text>
       <%= story.title %>
     </div>
-    <%= story.body.html_safe %>
+    <div class=story-body>
+      <%= story.body.gsub(/\n\r\n\r/, '<br/>').html_safe %>
+    </div>
   </div>
 <% end %>

@@ -17,6 +17,7 @@ class Story < ActiveRecord::Base
   def setActive
     Story.all.each {|s| s.deactivate; s.save}
     self.is_active = true
+    self.last_editor = nil
     self.save
   end
 
