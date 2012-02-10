@@ -1,8 +1,5 @@
 module ApplicationHelper
   def is_current_page?
-    puts params
-    puts params[:controller]
-    puts params[:action]
     return (params[:controller] == 'stories' and params[:action] == 'current')
   end
 

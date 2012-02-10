@@ -1,15 +1,19 @@
 <% if @story %>
-  <%= render 'stories/story', :story => @story %>
-  <br />
-  <% if @story.current_editor == nil and @story.last_editor != username %>
-    <%= render :partial => 'stories/take_control' %>
-  <% elsif @story.current_editor == username %>
-    <%= render 'stories/edit_box' %>
-  <% elsif @story.last_editor == username %>
-    Sorry, someone else must edit the story before you can contribute again.
-  <% else %>
-    Sorry, the story is currently being edited by someone else.
-  <% end %>
+  <div id=curr-story>
+    <%= render 'stories/story', :story => @story %>
+    <div id=story-controls>
+      <% if @story.current_editor == nil and @story.last_editor != username %>
+        <%= render :partial => 'stories/take_control' %>
+      <% elsif @story.current_editor == username %>
+        <%= render 'stories/edit_box' %>
+      <% elsif @story.last_editor == username %>
+        Sorry, someone else must edit the story before you can contribute again.
+      <% else %>
+        Sorry, the story is currently being edited by someone else.
+      <% end %>
+    </div>
+  </div>
+  <%= render 'stories/registered_users', :story => @story %>
 <% else %>
   No current fanfic.
 <% end %>

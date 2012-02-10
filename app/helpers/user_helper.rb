@@ -17,4 +17,8 @@ module UserHelper
   def is_auth?
     return true
   end
+
+  def is_current_user?(user)
+    return user == username
+  end
 end

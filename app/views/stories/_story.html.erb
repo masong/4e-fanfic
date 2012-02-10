@@ -1,6 +1,8 @@
 <% if story != nil %>
-  <div id=title class=highlight-text>
-    <%= story.title %>
+  <div class=story>
+    <div id=title class=highlight-text>
+      <%= story.title %>
+    </div>
+    <%= story.body.html_safe %>
   </div>
-  <%= story.body.html_safe %>
 <% end %>

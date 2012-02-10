@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209042714) do
+ActiveRecord::Schema.define(:version => 20120210003843) do
 
   create_table "stories", :force => true do |t|
     t.text     "body"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(:version => 20120209042714) do
     t.text     "last_editor"
     t.boolean  "is_active"
     t.string   "title"
+    t.text     "registered_users"
   end
 
 end

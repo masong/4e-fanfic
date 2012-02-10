@@ -10,7 +10,7 @@ $blue: #3b79bf;
 
 body {
   background:url('/assets/bg.png');
-  margin:0;
+  margin-top:16px;
 }
 
 #center-col {
@@ -40,6 +40,10 @@ body a {
   text-decoration:none;
 }
 
+body a:hover {
+  text-decoration:underline;
+}
+
 #nav-links {
   float:right;
   font-size:24pt;
@@ -51,6 +55,28 @@ body a {
   color:$blue;
 }
 
+.highlight-text:hover {
+  text-decoration:none;
+}
+
 #title {
   font-size:24pt;
+}
+
+#curr-story {
+  float:left;
+  width:60%;
+}
+
+#reg-users {
+  float:left;
+  width:40%;
+}
+
+#dereg-link {
+  color:$blue;
+}
+
+#reg-link {
+  color:$blue;
 }

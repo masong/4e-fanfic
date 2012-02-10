@@ -1,4 +1,5 @@
 include UserHelper 
+include StoryHelper
 
 class StoriesController < ApplicationController
   def new
@@ -8,14 +9,10 @@ class StoriesController < ApplicationController
   def create
     @story = Story.new(params[:story])
     @story.is_active = false
+    @story.registered_users = ','
+    @story.save
 
-    respond_to do |format|
-      if @story.save
-        format.html { render 'stories/show.html.erb' }
-      else
-        format.html { render action: 'new' }
-      end
-    end
+    redirect_to :controller => :admin, :action => 'index'
   end
 
   def show
@@ -26,7 +23,7 @@ class StoriesController < ApplicationController
   end
 
   def current
-    @story = Story.all.find_all {|s| s.is_active}[0]
+    @story = current_story
   end
 
   def take_control
@@ -61,5 +58,15 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     @story.deactivate
     redirect_to :controller => :admin, :action => :index
+  end
+
+  def register
+    current_story.add_registered(username)
+    redirect_to :controller => :stories, :action => 'current'
+  end
+
+  def deregister
+    current_story.deregister(username)
+    redirect_to :controller => :stories, :action => 'current'
   end
 end
