@@ -8,6 +8,7 @@ Fanfic::Application.routes.draw do
   match '/stories/deactivate' => 'stories#deactivate'
   match '/stories/register' => 'stories#register'
   match '/stories/deregister' => 'stories#deregister'
+  match '/stories/hide' => 'stories#hide'
 
   match '/admin/' => 'admin#index'
   

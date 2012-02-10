@@ -1,9 +1,10 @@
-<% for story in Story.all %>
+<% for story in Story.all.find_all { |s| s.visible } %>
   <%= story.title %>, <%= story.pretty_date %> 
   <% if story.is_active %>
     <%= link_to 'Deactivate', :id => story.id, :controller => 'stories', :action => 'deactivate' %>
   <% else %>
     <%= link_to 'Activate', :id => story.id, :action => 'activate', :controller => 'stories' %> 
   <% end %>
+  <%= link_to 'Delete', :id => story.id, :controller => 'stories', :action => 'hide' %>
   <br />
 <% end %>

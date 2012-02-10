@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120210003843) do
+ActiveRecord::Schema.define(:version => 20120210033203) do
 
   create_table "stories", :force => true do |t|
     t.text     "body"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(:version => 20120210003843) do
     t.boolean  "is_active"
     t.string   "title"
     t.text     "registered_users"
+    t.boolean  "visible"
   end
 
 end
