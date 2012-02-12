@@ -9,13 +9,8 @@ class Story < ActiveRecord::Base
 
     Thread.new do
       curr_rev = self.revnum
-      puts 'hi'
-      puts curr_rev
       sleep edittime
       self.reload
-      puts curr_rev
-      puts 'bye'
-      puts self.revnum
       if self.revnum == curr_rev
         self.current_editor = nil
         self.save
