@@ -14,4 +14,8 @@ module ApplicationHelper
   def is_admin_page?
     return (params[:controller] == 'admin' and params[:action] == 'index')
   end
+
+  def edittime
+    return 1200
+  end
 end

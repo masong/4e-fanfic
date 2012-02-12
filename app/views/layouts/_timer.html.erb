@@ -1,0 +1,6 @@
+<script type='text/javascript'>
+  $(document).ready(function() {
+      $('#timer').countdown({until: <%= seconds %>, format: 'dhMS', layout: 'Time left to submit: {d<}{dn}{dl} {d>}{h<}{hn}{hl} {h>}{m<}{mn}{ml} {m>}{s<}{sn}{sl}{s>}', labels: ['y', 'm', 'w', 'd', 'h', 'm', 's'], labels1:['y', 'm', 'w', 'd', 'h', 'm', 's']});
+  });
+</script>
+<div id=timer></div>

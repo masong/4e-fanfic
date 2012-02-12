@@ -4,7 +4,9 @@
       <%= story.title %>
     </div>
     <div class=story-body>
-      <%= story.body.gsub(/\n\r\n\r/, '<br/>').html_safe %>
+      <% if story.body != nil %>
+        <%= story.body.gsub(/\n\r\n\r/, '<br/>').html_safe %>
+      <% end %>
     </div>
   </div>
 <% end %>

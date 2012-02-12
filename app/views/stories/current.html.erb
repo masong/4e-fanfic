@@ -6,6 +6,7 @@
       <% if @story.current_editor == nil and @story.last_editor != username %>
         <%= render :partial => 'stories/take_control' %>
       <% elsif @story.current_editor == username %>
+        <%= render 'layouts/timer', :seconds => @story.get_editing_time %>
         <%= render 'stories/edit_box' %>
       <% elsif @story.last_editor == username %>
         Sorry, someone else must edit the story before you can contribute again.

@@ -2,12 +2,9 @@ include UserHelper
 include StoryHelper
 
 class StoriesController < ApplicationController
-  def new
-    @story = Story.new
-  end
-
   def create
     @story = Story.new(params[:story])
+    @story.body = ''
     @story.is_active = false
     @story.registered_users = ','
     @story.visible = true

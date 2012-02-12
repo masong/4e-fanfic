@@ -1,7 +1,10 @@
+include ApplicationHelper
+
 class Story < ActiveRecord::Base
   def set_control(user)
     self.current_editor = user
     self.last_editor = user 
+    self.control_time = Time.zone.now.strftime('%s')
     self.save
   end
 
@@ -45,5 +48,13 @@ class Story < ActiveRecord::Base
       return []
     end
     return self.registered_users.split(',')
+  end
+
+  def get_editing_time
+    if self.control_time == nil
+      return edittime
+    end
+    return (Time.at(edittime) - (Time.now - Time.at(self.control_time.to_i))).strftime('%s')
+    return 2
   end
 end
