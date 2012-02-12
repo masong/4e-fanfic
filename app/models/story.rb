@@ -6,6 +6,21 @@ class Story < ActiveRecord::Base
     self.last_editor = user 
     self.control_time = Time.zone.now.strftime('%s')
     self.save
+
+    Thread.new do
+      curr_rev = self.revnum
+      puts 'hi'
+      puts curr_rev
+      sleep edittime
+      self.reload
+      puts curr_rev
+      puts 'bye'
+      puts self.revnum
+      if self.revnum == curr_rev
+        self.current_editor = nil
+        self.save
+      end
+    end
   end
 
   def pretty_date
@@ -55,6 +70,5 @@ class Story < ActiveRecord::Base
       return edittime
     end
     return (Time.at(edittime) - (Time.now - Time.at(self.control_time.to_i))).strftime('%s')
-    return 2
   end
 end

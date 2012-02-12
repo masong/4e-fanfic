@@ -8,6 +8,7 @@ class StoriesController < ApplicationController
     @story.is_active = false
     @story.registered_users = ','
     @story.visible = true
+    @story.revnum = 0
     @story.save
 
     redirect_to :controller => :admin, :action => 'index'
@@ -39,6 +40,7 @@ class StoriesController < ApplicationController
     if @story.current_editor == username
       @story.body += '<br />'*2 + params[:story][:body]
       @story.current_editor = nil
+      @story.revnum += 1
       @story.save
       redirect_to :controller => :stories, :action => :current
     else
