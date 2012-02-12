@@ -7,3 +7,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+var init = function() {
+  editor.init();
+};
+
+$(document).ready(init);

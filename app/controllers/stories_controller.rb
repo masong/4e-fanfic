@@ -38,9 +38,6 @@ class StoriesController < ApplicationController
   def save
     @story = Story.find(params[:id])
     if @story.current_editor == username
-      if @story.body != ''
-        @story.body += '<br />'*2
-      end
       @story.body += params[:story][:body]
       @story.current_editor = nil
       @story.revnum += 1
