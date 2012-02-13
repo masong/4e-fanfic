@@ -12,9 +12,17 @@ class Story < ActiveRecord::Base
       sleep edittime
       self.reload
       if self.revnum == curr_rev
-        self.current_editor = nil
+        self.release_control
         self.save
       end
+    end
+  end
+
+  def release_control
+    self.current_editor = nil
+    self.save
+    Thread.new do
+      UserMailer.fanfic_open(self).deliver
     end
   end
 

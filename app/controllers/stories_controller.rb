@@ -39,7 +39,7 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     if @story.current_editor == username
       @story.body += params[:story][:body]
-      @story.current_editor = nil
+      @story.release_control
       @story.revnum += 1
       @story.save
       redirect_to :controller => :stories, :action => :current
@@ -62,9 +62,6 @@ class StoriesController < ApplicationController
 
   def register
     current_story.add_registered(username)
-    Thread.new {
-      UserMailer.fanfic_open(useremail).deliver
-    }
     redirect_to :controller => :stories, :action => 'current'
   end
 
