@@ -16,6 +16,6 @@ module ApplicationHelper
   end
 
   def edittime
-    return 8
+    return 1200
   end
 end

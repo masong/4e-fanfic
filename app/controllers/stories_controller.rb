@@ -62,6 +62,9 @@ class StoriesController < ApplicationController
 
   def register
     current_story.add_registered(username)
+    Thread.new {
+      UserMailer.fanfic_open(useremail).deliver
+    }
     redirect_to :controller => :stories, :action => 'current'
   end
 

@@ -10,6 +10,10 @@ module UserHelper
     end
   end
 
+  def useremail
+    return username + '@mit.edu'
+  end
+
   def is_admin?
     return username == 'mglidden'
   end
