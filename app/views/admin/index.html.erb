@@ -1,12 +1,23 @@
-<% for story in Story.all.find_all { |s| s.visible } %>
-  <div class='admin-title'> <%= story.title %></div>, <%= story.pretty_date %> 
-  <% if story.is_active %>
-    <%= link_to 'Deactivate', :id => story.id, :controller => 'stories', :action => 'deactivate' %>
-  <% else %>
-    <%= link_to 'Activate', :id => story.id, :action => 'activate', :controller => 'stories' %> 
-  <% end %>
-  <%= link_to 'Delete', :id => story.id, :controller => 'stories', :action => 'hide' %>
-  <br />
-<% end %>
+<span class=admin-header>Manage Existing Fanfics</span>
 <br />
-<%= render 'stories/new' %>
+<div class=admin-subsection>
+  <% for story in Story.all.find_all { |s| s.visible } %>
+    <div class='admin-title'> <%= story.title %></div>, <%= story.pretty_date %> 
+    <span class='admin-action'>
+      <% if story.is_active %>
+        <%= link_to 'Deactivate', :id => story.id, :controller => 'stories', :action => 'deactivate' %>
+      <% else %>
+        <%= link_to 'Activate', :id => story.id, :action => 'activate', :controller => 'stories' %> 
+      <% end %>
+    </span>
+    <span class='admin-action'>
+      <%= link_to 'Delete', :id => story.id, :controller => 'stories', :action => 'hide' %>
+    </span>
+    <br />
+  <% end %>
+</div>
+<br />
+<span class=admin-header>Create a New Fanfic</span>
+<div class=admin-subsection>
+  <%= render 'stories/new' %>
+</div>

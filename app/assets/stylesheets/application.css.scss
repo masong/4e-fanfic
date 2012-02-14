@@ -128,5 +128,21 @@ body a:hover {
 .admin-title {
   display:inline;
   color: $blue;
-  font-weight:bold;
+}
+
+.admin-action a {
+  color: black;
+  text-decoration:underline;
+}
+
+.admin-action a:hover {
+  color:$blue;
+}
+
+.admin-header {
+  font-size:20pt;
+}
+
+.admin-subsection {
+  margin-left:8px;
 }
