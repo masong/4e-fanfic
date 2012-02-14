@@ -1,13 +1,13 @@
 <div id=header class=round-box>
   <div id=logo>
-    <a href=/>Fanfic</a>
+    <a class='nav-link' id=logo-text href=/>4E Fanfic</a>
   </div>
   <div id=nav-links>
-    <a href=/ <% if is_current_page? %>class=highlight-text<% end %>>current</a> |
-    <a href=/stories <% if is_archive_page? %>class=highlight-text<% end %>>archive</a> |
-    <a href=/about <% if is_about_page? %>class=highlight-text<% end %>>about</a>
+    <a class='nav-link' href=/ <% if is_current_page? %>id=current-nav-link<% end %>>current</a> |
+    <a class='nav-link' href=/stories <% if is_archive_page? %>id=current-nav-link<% end %>>archive</a> |
+    <a class='nav-link' href=/about <% if is_about_page? %>id=current-nav-link<% end %>>about</a>
     <% if is_admin? %>
-      | <a href=/admin <% if is_admin_page? %>class=highlight-text<% end %>>admin</a>
+      | <a class='nav-link' href=/admin <% if is_admin_page? %>id=current-nav-link<% end %>>admin</a>
     <% end %>
   </div>
 </div>
