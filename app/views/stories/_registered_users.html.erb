@@ -13,6 +13,9 @@
         <% end %>
       <% end %>
       <% if !story.is_registered?(username) %>
+        <% if story.get_registered_users.length > 0 %>
+          <br />
+        <% end %>
         <%= link_to 'register', {:controller => 'stories', :action => 'register'}, :id => 'reg-link' %>
       <% end %>
     <% end %>
