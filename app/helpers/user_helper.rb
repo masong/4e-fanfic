@@ -6,16 +6,19 @@ module UserHelper
       @username = request.env['HTTP_DN'].split('/')[-1][13..-9]
       return @username
     else
-      return ''
+      return 'guest'
     end
   end
 
   def useremail
+    if username = 'guest'
+      return 'mglidden'
+    end
     return username + '@mit.edu'
   end
 
   def is_admin?
-    return username == 'mglidden'
+    return (username == 'mglidden' or username == 'guest')
   end
 
   def is_auth?

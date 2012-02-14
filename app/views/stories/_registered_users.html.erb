@@ -10,12 +10,10 @@
           <% if is_current_user?(user) %>
             (<%= link_to 'deregister', {:action => 'deregister', :controller => 'stories'}, :id => 'dereg-link' %>)
           <% end %>
+          <br />
         <% end %>
       <% end %>
       <% if !story.is_registered?(username) %>
-        <% if story.get_registered_users.length > 0 %>
-          <br />
-        <% end %>
         <%= link_to 'register', {:controller => 'stories', :action => 'register'}, :id => 'reg-link' %>
       <% end %>
     <% end %>
