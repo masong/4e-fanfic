@@ -1,18 +1,20 @@
-<h3 style='-webkit-margin-after:0.2em; -webkit-margin-before:0'>
-  Participants
-</h3>
-<div id=reg-users>
-  <% if story %>
-    <% for user in story.get_registered_users %>
-      <% if user != '' %>
-        <%= user %>
-        <% if is_current_user?(user) %>
-          (<%= link_to 'deregister', {:action => 'deregister', :controller => 'stories'}, :id => 'dereg-link' %>)
+<div id=participants-bar>
+    <h3 style='-webkit-margin-after:0.2em; -webkit-margin-before:0'>
+    Participants
+  </h3>
+  <div id=reg-users>
+    <% if story %>
+      <% for user in story.get_registered_users %>
+        <% if user != '' %>
+          <%= user %>
+          <% if is_current_user?(user) %>
+            (<%= link_to 'deregister', {:action => 'deregister', :controller => 'stories'}, :id => 'dereg-link' %>)
+          <% end %>
         <% end %>
       <% end %>
+      <% if !story.is_registered?(username) %>
+        <%= link_to 'register', {:controller => 'stories', :action => 'register'}, :id => 'reg-link' %>
+      <% end %>
     <% end %>
-    <% if !story.is_registered?(username) %>
-      <%= link_to 'register', {:controller => 'stories', :action => 'register'}, :id => 'reg-link' %>
-    <% end %>
-  <% end %>
+  </div>
 </div>
