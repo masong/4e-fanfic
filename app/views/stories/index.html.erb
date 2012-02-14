@@ -1,5 +1,3 @@
 <% for story in Story.all.find_all {|s| s.visible } %>
   <%= render 'stories/story', :story => story %>
-  <br />
-  <br />
 <% end %>
