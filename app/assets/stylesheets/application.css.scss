@@ -65,11 +65,13 @@ body a:hover {
 
 .nav-link {
   color:black;
+  cursor:pointer;
   text-decoration:none;
 }
 
 #current-nav-link {
   color:$blue;
+  text-decoration:none;
 }
 
 .highlight-text {

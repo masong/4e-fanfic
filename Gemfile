@@ -37,3 +37,5 @@ end
 
 gem 'mysql2'
 gem 'rack', '1.3.6'
+gem 'execjs'
+gem 'therubyracer'
