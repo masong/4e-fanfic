@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120212195835) do
+ActiveRecord::Schema.define(:version => 20120216183854) do
 
   create_table "stories", :force => true do |t|
     t.text     "body"
@@ -25,6 +25,15 @@ ActiveRecord::Schema.define(:version => 20120212195835) do
     t.boolean  "visible"
     t.text     "control_time"
     t.integer  "revnum"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "member"
+    t.boolean  "email_alerts"
   end
 
 end

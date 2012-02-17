@@ -42,32 +42,6 @@ class Story < ActiveRecord::Base
     self.save
   end
 
-  def add_registered(user)
-    if is_registered?(user)
-      return
-    end
-    self.registered_users += user + ','
-    save
-  end
-
-  def deregister(user)
-    users = self.registered_users.split(',')
-    users.delete(user)
-    self.registered_users = users.join(',') + ','
-    save
-  end
-
-  def is_registered?(user)
-    return self.registered_users.index(','+user+',') != nil
-  end
-
-  def get_registered_users
-    if self.registered_users == nil
-      return []
-    end
-    return self.registered_users.split(',')
-  end
-
   def get_editing_time
     if self.control_time == nil
       return edittime

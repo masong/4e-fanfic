@@ -6,9 +6,12 @@ Fanfic::Application.routes.draw do
   match '/stories/save' => 'stories#save'
   match '/stories/activate' => 'stories#activate'
   match '/stories/deactivate' => 'stories#deactivate'
-  match '/stories/register' => 'stories#register'
-  match '/stories/deregister' => 'stories#deregister'
   match '/stories/hide' => 'stories#hide'
+
+  match '/users/add_alerts' => 'users#add_alerts'
+  match '/users/remove_alerts' => 'users#remove_alerts'
+  match '/users/register' => 'users#register'
+  match '/users/deregister' => 'users#deregister'
 
   match '/admin/' => 'admin#index'
   

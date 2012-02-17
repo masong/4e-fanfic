@@ -4,17 +4,17 @@
   </h3>
   <div id=reg-users>
     <% if story %>
-      <% for user in story.get_registered_users %>
-        <% if user != '' %>
-          <%= user %>
-          <% if is_current_user?(user) %>
-            (<%= link_to 'deregister', {:action => 'deregister', :controller => 'stories'}, :id => 'dereg-link' %>)
+      <% for member in User.all.find_all {|u| u.member } %>
+        <% if member.email != nil %>
+          <%= member.name %>
+          <% if is_current_user?(member) %>
+            (<%= link_to 'deregister', {:action => 'deregister', :controller => 'users'}, :id => 'dereg-link' %>)
           <% end %>
           <br />
         <% end %>
       <% end %>
-      <% if !story.is_registered?(username) %>
-        <%= link_to 'register', {:controller => 'stories', :action => 'register'}, :id => 'reg-link' %>
+      <% if not user.member %>
+        <%= link_to 'register', {:controller => 'users', :action => 'register'}, :id => 'reg-link' %>
       <% end %>
     <% end %>
   </div>

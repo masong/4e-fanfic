@@ -3,15 +3,22 @@
     <%= render 'stories/story', :story => @story, :add_underline => true %>
     <br />
     <div id=story-controls>
-      <% if @story.current_editor == nil and @story.last_editor != username %>
+      <% if @story.current_editor == nil and @story.last_editor != user.email%>
         <%= render :partial => 'stories/take_control' %>
-      <% elsif @story.current_editor == username %>
+      <% elsif @story.current_editor == user.email %>
         <%= render 'layouts/timer', :seconds => @story.get_editing_time %>
         <%= render 'stories/edit_box' %>
-      <% elsif @story.last_editor == username %>
+      <% elsif @story.last_editor == user.email %>
         Sorry, someone else must edit the story before you can contribute again.
       <% else %>
         Sorry, the story is currently being edited by someone else.
+      <% end %>
+    </div>
+    <div id=email-alerts>
+      <% if not user.email_alerts %>
+        <%= link_to 'Sign up', {:action => 'add_alerts', :controller => 'users'} %> to recieve email alerts when the story is avilable.
+      <% else %>
+        <%= link_to 'Remove yourself', {:action => 'remove_alerts', :controller => 'users'} %> from email alerts.
       <% end %>
     </div>
   </div>
