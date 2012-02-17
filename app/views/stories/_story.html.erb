@@ -1,11 +1,19 @@
 <% if story != nil %>
   <div class=story>
-    <div id=title class=highlight-text>
+    <div id=title class=highlight-text
+      <% if toggle_body %>
+        onclick=archive.toggle()
+      <% end %>>
       <%= story.title %>
     </div>
     <div <% if !add_underline %> id=last-story <% end %> class=story-body>
       <% if story.body != nil %>
-        <%= story.body.gsub(/\n/, '<br/>').html_safe %>
+        <div class=story-content
+            <% if toggle_body %>
+              style='display:none'
+            <% end %>>
+          <%= story.body.gsub(/\n/, '<br/>').html_safe %>
+        </div>
       <% end %>
     </div>
   </div>

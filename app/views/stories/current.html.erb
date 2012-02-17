@@ -1,6 +1,6 @@
 <% if @story %>
   <div id=curr-story>
-    <%= render 'stories/story', :story => @story, :add_underline => true %>
+    <%= render 'stories/story', :story => @story, :add_underline => true, :toggle_body => false %>
     <br />
     <div id=story-controls>
       <% if @story.current_editor == nil and @story.last_editor != user.email%>
