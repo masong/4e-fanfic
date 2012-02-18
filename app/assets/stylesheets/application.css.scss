@@ -94,6 +94,31 @@ body a:hover {
   font-size:18pt;
 }
 
+@mixin rotate($angle) {
+  @each $b in webkit, moz, o, ms {
+    -#{$b}-transform: rotate(#{$angle}deg);
+  }
+}
+
+.arrow-right {
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid $blue;
+  border-top: 5px solid transparent;
+  float:left;
+  height:0;
+  margin-top:14px;
+  width:0;
+
+  @include rotate(0);
+  @each $b in webkit, moz, o, ms {
+    -#{$b}-transition: -#{$b}-transform 300ms;
+  }
+}
+
+.arrow-rotate-down {
+  @include rotate(90);
+}
+
 #curr-story {
   border-color:#aaaaaa;
   border-right-style:solid;

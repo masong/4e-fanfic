@@ -4,6 +4,9 @@
       <% if toggle_body %>
         onclick=archive.toggle()
       <% end %>>
+      <% if toggle_body %>
+        <div class=arrow-right></div>
+      <% end %>
       <%= story.title %>
       <% if show_date %>
         <div class=date>
