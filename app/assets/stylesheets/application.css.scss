@@ -83,9 +83,16 @@ body a:hover {
 }
 
 #title {
-  cursor:default;
   font-family:$header-font;
   font-size:24pt;
+}
+
+.clickable-title {
+  cursor:pointer;
+}
+
+.nonclickable-title {
+  cursor:default;
 }
 
 .date {

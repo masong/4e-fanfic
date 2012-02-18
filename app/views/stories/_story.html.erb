@@ -1,5 +1,10 @@
 <% if story != nil %>
-  <div class=story>
+  <div 
+    <% if toggle_body %>
+      class="story clickable-title"
+    <% else %>
+      class = "story nonclickable-title"
+    <% end %>>
     <div id=title class=highlight-text
       <% if toggle_body %>
         onclick=archive.toggle()
