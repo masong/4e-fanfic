@@ -27,8 +27,8 @@ class StoriesController < ApplicationController
 
   def take_control
     @story = Story.find(params[:id])
-    if @story.current_editor == nil and @story.last_editor != user_email
-      @story.set_control(user_email)
+    if @story.current_editor == nil and @story.last_editor != user.email
+      @story.set_control(user.email)
       redirect_to :controller => :stories, :action => :current
     else
       render :inline => "can't forcibly take control from someone else"
@@ -37,7 +37,7 @@ class StoriesController < ApplicationController
 
   def save
     @story = Story.find(params[:id])
-    if @story.current_editor == user_email
+    if @story.current_editor == user.email
       @story.body += params[:story][:body]
       @story.release_control
       @story.revnum += 1
