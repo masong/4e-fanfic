@@ -17,11 +17,11 @@
     <div id=email-alerts>
       <% if not user.email_alerts %>
         <%= form_for @story, :url => {:action => 'add_alerts', :controller => 'users'} do |f|%>
-          <input name='email' type='submit' value='Receive email alerts'>
+          <input name='email' class=left-align-button type='submit' value='Receive email alerts'>
         <% end %>
       <% else %>
-        <%= form_for @story, :url => {:action => 'add_alerts', :controller => 'users'} do |f|%>
-          <input name='email' type='submit' value="Don't receive email alerts">
+        <%= form_for @story, :url => {:action => 'remove_alerts', :controller => 'users'} do |f|%>
+          <input name='email' class=left-align-button type='submit' value="Don't receive email alerts">
         <% end %>
       <% end %>
     </div>
