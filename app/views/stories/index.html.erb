@@ -1,4 +1,4 @@
 <% @visible_stories = Story.all.find_all {|s| s.visible} %>
 <% for story in @visible_stories %>
-  <%= render 'stories/story', :story => story, :add_underline => @visible_stories[-1] != story, :toggle_body => true, :show_date => true %>
+  <%= render 'stories/story', :story => story, :add_underline => @visible_stories[-1] != story, :toggle_body => true, :show_date => false %>
 <% end %>
