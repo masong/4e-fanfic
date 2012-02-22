@@ -29,6 +29,8 @@ class StoriesController < ApplicationController
     @story = Story.find(params[:id])
     if @story.current_editor == nil and @story.last_editor != user.email
       @story.set_control(user.email)
+      user.member = true
+      user.save
       redirect_to :controller => :stories, :action => :current
     else
       render :inline => "can't forcibly take control from someone else"
