@@ -16,9 +16,13 @@
     </div>
     <div id=email-alerts>
       <% if not user.email_alerts %>
-        <%= link_to 'Sign up', {:action => 'add_alerts', :controller => 'users'} %> to recieve email alerts when the story is avilable.
+        <%= form_for @story, :url => {:action => 'add_alerts', :controller => 'users'} do |f|%>
+          <input name='email' type='submit' value='Receive email alerts'>
+        <% end %>
       <% else %>
-        <%= link_to 'Remove yourself', {:action => 'remove_alerts', :controller => 'users'} %> from email alerts.
+        <%= form_for @story, :url => {:action => 'add_alerts', :controller => 'users'} do |f|%>
+          <input name='email' type='submit' value="Don't receive email alerts">
+        <% end %>
       <% end %>
     </div>
   </div>
