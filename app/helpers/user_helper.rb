@@ -21,6 +21,10 @@ module UserHelper
     return request.env['HTTP_DN'].split('/')[-1][13..-1]
   end
 
+  def cert_name
+    return request.env['HTTP_DN'].split('/')[-2][3..-1]
+  end
+
   def is_admin?
     return user.email == 'mglidden@MIT.EDU'
   end
@@ -34,7 +38,7 @@ module UserHelper
   end
 
   def create_user
-    params = {:email => cert_email, :name => 'mason', :member => false,
+    params = {:email => cert_email, :name => cert_name, :member => false,
       :email_alerts => false}
     return User.new(params)
   end
