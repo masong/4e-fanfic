@@ -3,14 +3,12 @@
     Participants
   </h3>
   <div id=reg-users>
-    <% for member in User.all.find_all {|u| u.member } %>
-      <% if member.email != nil %>
-        <%= member.name %>
-        <% if is_current_user?(member) %>
-          (<%= link_to 'deregister', {:action => 'deregister', :controller => 'users'}, :id => 'dereg-link' %>)
-        <% end %>
-        <br />
+    <% for member in User.all.find_all {|u| u.member }.sort {|u| u.name} %>
+      <%= member.name %>
+      <% if is_current_user?(member) %>
+        (<%= link_to 'deregister', {:action => 'deregister', :controller => 'users'}, :id => 'dereg-link' %>)
       <% end %>
+      <br />
     <% end %>
     <% if not user.member %>
       <%= link_to 'register', {:controller => 'users', :action => 'register'}, :id => 'reg-link' %>
