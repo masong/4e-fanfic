@@ -1,14 +1,15 @@
 To get certs up and running:
 
 1) Follow the first step from this page – it will walk you through the creation of a new certificate
-  1a) Download the MIT CA certificate from https://ca.mit.edu/mitca.crt and copy it to /etc/ssl/
-2) Run gem install passenger
-3) Go and download the nginx source code
-4) Run sudo passenger-install-nginx-module. Select the option to customize your installation, and give it the directory where you downloaded the source code to. Use the default for where you want to install Nginx to. When asked for extra agruments, provide '--with-http_ssl_module'
-5) Setup /opt/nginx/conf/nginx.conf to be similar to the provided conf file
-6) Start nginx with 'sudo /opt/nginx/sbin/nginx'
-7) Install thin with 'gem install thin'
-8) cd into the fanfic directory, start thin with thin start -s3 -p 3000
+  1a) Download the MIT CA certificate from https://ca.mit.edu/mitca.crt and copy it somewhere
+2) Install nginx
+3) Setup the nginx conf file to be similar to the provied file. Basically, you want to redirect requests to rails, and add the certificate information to the header.
+4) Start nginx
+5) Install thin with 'gem install thin'
+6) cd into the fanfic directory, start thin with thin start -s3 -p 3000. This starts 3 servers to decrease response time
+
+
+NOTE: If you are trying to maintan this on the pants and it has NOT been upgraded from 10.04 yet, you'll have a fun time. I was using the command `killall -9 ruby; rvm 1.9.2 do rails server -e production -d` to restart the rails server. Ideally I would just be able to use thin, but that decided to not work. The nginx configuration file is in /usr/local/nginx/conf/sites-available/fanfic.
 
 
 Nginx takes care of the certificate authentication, adds some information to the http header, then fowards the requset to the thin server on port 3000.
