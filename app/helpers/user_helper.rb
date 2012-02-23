@@ -18,6 +18,7 @@ module UserHelper
   end
 
   def cert_email
+    return "BOB"
     return request.env['HTTP_DN'].split('/')[-1][13..-1]
   end
 
