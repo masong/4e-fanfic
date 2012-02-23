@@ -4,17 +4,18 @@ Fanfic::Application.routes.draw do
   match '/stories/current' => 'stories#current'
   match '/stories/take_control' => 'stories#take_control'
   match '/stories/save' => 'stories#save'
-  match '/stories/activate' => 'stories#activate'
-  match '/stories/deactivate' => 'stories#deactivate'
-  match '/stories/hide' => 'stories#hide'
+
+  match '/admin/' => 'admin#index'
+  match '/admin/create_story' => 'admin#create_story'
+  match '/admin/activate_story' => 'admin#activate_story'
+  match '/admin/deactivate_story' => 'admin#deactivate_story'
+  match '/admin/hide_story' => 'admin#hide_story'
 
   match '/users/add_alerts' => 'users#add_alerts'
   match '/users/remove_alerts' => 'users#remove_alerts'
   match '/users/register' => 'users#register'
   match '/users/deregister' => 'users#deregister'
 
-  match '/admin/' => 'admin#index'
-  
   match '/about/' => 'about#index'
 
   resources :stories do

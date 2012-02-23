@@ -26,7 +26,7 @@ module UserHelper
   end
 
   def is_admin?
-    return user.email == 'mglidden@MIT.EDU'
+    return user.email == 'bob@MIT.EDU'
   end
 
   def is_auth?

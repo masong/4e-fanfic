@@ -5,13 +5,13 @@
     <div class='admin-title'> <%= story.title %></div>, <%= story.pretty_date %> 
     <span class='admin-action'>
       <% if story.is_active %>
-        <%= link_to 'Deactivate', :id => story.id, :controller => 'stories', :action => 'deactivate' %>
+        <%= link_to 'Deactivate', :id => story.id, :controller => 'admin', :action => 'deactivate_story' %>
       <% else %>
-        <%= link_to 'Activate', :id => story.id, :action => 'activate', :controller => 'stories' %> 
+        <%= link_to 'Activate', :id => story.id, :action => 'activate_story', :controller => 'admin' %> 
       <% end %>
     </span>
     <span class='admin-action'>
-      <%= link_to 'Delete', :id => story.id, :controller => 'stories', :action => 'hide' %>
+      <%= link_to 'Delete', :id => story.id, :controller => 'admin', :action => 'hide_story' %>
     </span>
     <br />
   <% end %>
